@@ -8,15 +8,32 @@ let level = 0;
 
 let h3 = document.querySelector("h3");
 
-document.addEventListener("keypress", function () {
-    if(started == false) {
-      console.log("game started");
-      started = true;
 
-      levelUp();
+
+
+function startGame() {
+    if (!started) {
+        console.log("game started");
+        started = true;
+        levelUp();
     }
+}
 
-});
+document.addEventListener("keypress", startGame);   // keyboard
+document.addEventListener("click", startGame);      // mouse tap
+document.addEventListener("touchstart", startGame); // mobile touch
+
+
+
+// document.addEventListener("keypress", function () {
+//     if(started == false) {
+//       console.log("game started");
+//       started = true;
+
+//       levelUp();
+//     }
+
+// });
 
 function gameFlash(btn){
   btn.classList.add("flash");
